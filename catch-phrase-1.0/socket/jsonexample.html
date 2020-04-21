@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Looping through arrays inside arrays.</p>
+
+<p id="demo"></p>
+
+<script>
+var myObj, i, j, x = "";
+myObj = {
+  "name":"John",
+  "age":30,
+  "cars": [
+    {"name":"Ford", "models":["Fiesta", "Focus", "Mustang"]},
+    {"name":"BMW", "models":["320", "X3", "X5"]},
+    {"name":"Fiat", "models":["500", "Panda"] }
+  ]
+}
+for (i in myObj.cars) {
+  x += "<h2>" + myObj.cars[i].name + "</h2>";
+  for (j in myObj.cars[i].models) {
+    x += myObj.cars[i].models[j] + "<br>";
+  }
+}
+
+function myFunction() {
+  alert("Hello");
+}
+
+//var myVar = setTimeout(myFunction, 3000);
+
+var myVar = setInterval(myTimer, 1000);
+
+function myTimer() {
+  console.log('saneep');
+}
+
+//clearTimeout(myVar);
+
+
+
+//"TEAMA_PLAYER1","TEAMB_PLAYER1","TEAMA_PLAYER2","TEAMB_PLAYER2"
+
+
+
+
+// NinetysecGames['room1'] = new NinetysecGame("Game 1");
+// NinetysecGames['room2'] = new NinetysecGame("Game 2");
+
+// NinetysecGames['room2'].Round.currentTurn = 2;
+
+// console.log(NinetysecGames);
+
+// console.log(NinetysecGames['room1'].isaAnswer(NinetysecGames['room1'].getTeamId("1")));
+
+// console.log(NinetysecGames['room1'].getTeamId("1"));
+
+// console.log(NinetysecGame.getNextTurn(NinetysecGame.Round.currentTurn));
+// document.getElementById("demo").innerHTML = x;
+
+
+
+
+</script>
+
+</body>
+</html>

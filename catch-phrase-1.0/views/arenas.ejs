@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html >
+  <head>
+   <!-- Required meta tags -->
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <link rel="stylesheet" type="text/css"  href="/css/signin.css">
+   <!-- Optional JavaScript -->
+   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ 
+   <title>Guess Wat</title>
+   
+  </head>
+  <body>
+     
+    <div>       
+            <div class="form-group" style="text-align: center;">
+                    <div class="col-sm-10 col-sm-offset-2">
+                        <input type="button" id="playcatchphrase" class="btn btn-primary" value="PLAY CATCHPHRASE" />
+                    </div>
+                </div>
+
+                    <div class="form-group" style="text-align: center;">
+                    <div class="col-sm-10 col-sm-offset-2">
+                        <input type="button" id="playpassword" class="btn btn-primary" value="PLAY PASSWORD" />
+                    </div>
+                </div>
+            
+                <div class="mt-5 mb-3">
+                    
+                        Hello, <%= user.username %>
+                   
+                </div>
+                <div class="mb-3">
+                    <label for="inputCreateRoom" class="sr-only">Create Arena</label>
+                    <input type="text" id="inputCreateRoom" name="createroom" class="form-control" placeholder="Create Arena" required autofocus>
+                </div>
+                <div class="room-create">
+                    <button class="btn btn-lg btn-primary btn-block" type="button">Create Arena</button>
+                </div>
+               
+                <div class="mt-5 mb-3">
+                        <div class="room-list">
+                        <ul>
+                            <% if(arenas.length > 0) { %>
+                            <% arenas.forEach(function(arena) { %>
+                                <li class="room-item"><a href="/selectionarena/<%= arena.id %>/<%= user.id %>" class="btn btn-lg btn-outline-primary btn-block"><%= arena.title %></a></li>
+                                <% }); %>
+                            <% } else { %>
+                            <p class="message" style="text-align: center; padding: 0; margin: 0;">Create your first arena!</p>
+                            <% } %>
+                        </ul>
+                        </div> <!-- end room-list -->  
+                </div>
+                
+                
+          
+                <p class="mt-5 mb-3 text-muted">&copy; 2019-2020</p>
+              
+
+            
+                        
+            
+    </div>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/main.js"></script>
+    <script>$(function(){app.arenas('<%= user.username %>','<%= user.id %>')});</script>
+  </body>
+</html>
